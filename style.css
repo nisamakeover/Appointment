@@ -1188,3 +1188,110 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   z-index: 1;
 }
 .home-service-banner { margin-bottom: 0; }
+
+/* ── HERO IMAGE SLIDER ── */
+.hero-slider {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center top;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.hero-slide.active { opacity: 1; }
+
+.hero-slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(10,8,3,0.65) 0%,
+    rgba(10,8,3,0.45) 40%,
+    rgba(10,8,3,0.8) 100%
+  );
+}
+
+.hero-slide-label {
+  position: absolute;
+  bottom: 110px;
+  right: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,0,0,0.55);
+  border: 1px solid var(--gold, #c9a84c);
+  color: var(--gold, #c9a84c);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 30px;
+  backdrop-filter: blur(6px);
+}
+.slide-icon { width: 14px; height: 14px; }
+
+/* Dots */
+.slider-dots {
+  position: absolute;
+  bottom: 72px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+.slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+.slider-dot.active {
+  background: var(--gold, #c9a84c);
+  transform: scale(1.3);
+}
+
+/* Arrows */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.slider-arrow:hover {
+  background: rgba(201,168,76,0.7);
+  border-color: var(--gold, #c9a84c);
+}
+.slider-arrow svg { width: 20px; height: 20px; }
+.slider-prev { left: 20px; }
+.slider-next { right: 20px; }
+
+/* Keep hero-content above slider */
+#hero { position: relative; overflow: hidden; }
+.hero-bg, .hero-grain, .hero-ornament { z-index: 1; }
+.hero-content, .hero-scroll { position: relative; z-index: 2; }
+
+@media (max-width: 600px) {
+  .hero-slide-label { bottom: 90px; right: 16px; font-size: 0.68rem; }
+  .slider-arrow { width: 32px; height: 32px; }
+  .slider-prev { left: 10px; }
+  .slider-next { right: 10px; }
+}

@@ -1025,3 +1025,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .step-actions { flex-wrap:wrap; }
   .step-actions .btn-wa, .step-actions .btn-primary { width:100%; justify-content:center; }
 }
+
+/* ── LUCIDE ICON STYLES ── */
+[data-lucide] { display: inline-block; vertical-align: middle; }
+
+.icon-tag { width: 14px; height: 14px; stroke-width: 2; }
+.icon-inline { width: 16px; height: 16px; stroke-width: 2; }
+.btn-icon { width: 16px; height: 16px; stroke-width: 2; margin-right: 4px; }
+
+.service-icon [data-lucide] { width: 40px; height: 40px; stroke-width: 1.5; }
+.mode-icon [data-lucide] { width: 36px; height: 36px; stroke-width: 1.5; }
+.why-emoji [data-lucide] { width: 32px; height: 32px; stroke-width: 1.5; }
+.insta-icon [data-lucide] { width: 48px; height: 48px; stroke-width: 1.5; }
+.contact-item-icon [data-lucide] { width: 24px; height: 24px; stroke-width: 1.5; }

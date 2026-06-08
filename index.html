@@ -76,40 +76,45 @@
         <p class="section-subtitle">From bridal glam to everyday elegance — each look crafted with precision and passion.</p>
       </div>
       <div class="services-grid">
-        <div class="service-card reveal">
+        <div class="service-card reveal" data-img="assets/services/bridal.png" data-title="Bridal Makeup">
           <div class="service-number">01</div>
           <div class="service-icon"><i data-lucide="crown"></i></div>
           <h3 class="service-name">Bridal Makeup</h3>
           <p class="service-desc">A timeless bridal look crafted for your most special day. Long-lasting, camera-ready perfection for every ceremony.</p>
           <span class="service-tag">Most Popular</span>
+          <button class="service-view-btn" onclick="openServiceModal(this)"><i data-lucide="eye" class="btn-icon"></i> View Details</button>
         </div>
-        <div class="service-card reveal">
+        <div class="service-card reveal" data-img="assets/services/engagement.png" data-title="Engagement & Reception Makeup">
           <div class="service-number">02</div>
           <div class="service-icon"><i data-lucide="diamond"></i></div>
           <h3 class="service-name">Engagement & Reception</h3>
           <p class="service-desc">Elegant makeup for your engagement and reception events. Glow through every moment with effortless grace.</p>
           <span class="service-tag">Premium</span>
+          <button class="service-view-btn" onclick="openServiceModal(this)"><i data-lucide="eye" class="btn-icon"></i> View Details</button>
         </div>
-        <div class="service-card reveal">
+        <div class="service-card reveal" data-img="assets/services/party.png" data-title="Party Makeup">
           <div class="service-number">03</div>
           <div class="service-icon"><i data-lucide="party-popper"></i></div>
           <h3 class="service-name">Party Makeup</h3>
           <p class="service-desc">Stand out at every celebration. Bold, vibrant looks designed to keep you glowing from dusk to dawn.</p>
           <span class="service-tag">Trending</span>
+          <button class="service-view-btn" onclick="openServiceModal(this)"><i data-lucide="eye" class="btn-icon"></i> View Details</button>
         </div>
-        <div class="service-card reveal">
+        <div class="service-card reveal" data-img="assets/services/saree.png" data-title="Saree Draping">
           <div class="service-number">04</div>
           <div class="service-icon"><i data-lucide="shirt"></i></div>
           <h3 class="service-name">Saree Draping</h3>
           <p class="service-desc">Expert saree draping in all regional styles — Bengali, Nivi, Gujarati, Rajasthani, and more.</p>
           <span class="service-tag">Exclusive</span>
+          <button class="service-view-btn" onclick="openServiceModal(this)"><i data-lucide="eye" class="btn-icon"></i> View Details</button>
         </div>
-        <div class="service-card reveal">
+        <div class="service-card reveal" data-img="assets/services/hair.png" data-title="Hair Styling & Updo">
           <div class="service-number">05</div>
           <div class="service-icon"><i data-lucide="scissors"></i></div>
           <h3 class="service-name">Hair Styling & Updo</h3>
           <p class="service-desc">From sleek blowouts to intricate updos and braids — professional hair styling for every occasion.</p>
           <span class="service-tag">Available</span>
+          <button class="service-view-btn" onclick="openServiceModal(this)"><i data-lucide="eye" class="btn-icon"></i> View Details</button>
         </div>
       </div>
     </div>
@@ -174,6 +179,16 @@
   ══════════════════════════════════════════ -->
   <section id="booking">
     <div class="container">
+      <div class="home-service-banner reveal">
+        <img src="assets/services/homeservice.png" alt="Home Service — Nisa Makeover" class="hs-banner-img" />
+        <div class="hs-banner-overlay">
+          <p class="hs-banner-tag"><i data-lucide="home" class="icon-inline"></i> Home Service Available</p>
+          <h3 class="hs-banner-title">We Come To You</h3>
+          <p class="hs-banner-sub">Professional makeup, hairstyling & saree draping at your doorstep — same luxury, no salon hassle.</p>
+          <a href="#booking" class="btn-primary hs-book-btn"><span><i data-lucide="calendar" class="btn-icon"></i> Book Appointment</span></a>
+        </div>
+      </div>
+
       <div class="booking-header reveal">
         <span class="section-tag"><i data-lucide="gem" class="icon-tag"></i> Appointments</span>
         <h2 class="section-title">Book Your <span>Appointment</span></h2>
@@ -394,13 +409,44 @@
     </div>
   </footer>
 
+  <!-- ── SERVICE IMAGE MODAL ── -->
+  <div id="serviceModal" class="svc-modal" onclick="closeServiceModal(event)">
+    <div class="svc-modal-inner">
+      <button class="svc-modal-close" onclick="closeServiceModal()"><i data-lucide="x"></i></button>
+      <img id="svcModalImg" src="" alt="" class="svc-modal-img" />
+    </div>
+  </div>
+
   <script src="script.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       lucide.createIcons();
     });
-    // Also run after any dynamic content
     setTimeout(() => lucide.createIcons(), 500);
+
+    function openServiceModal(btn) {
+      const card = btn.closest('.service-card');
+      const img = card.getAttribute('data-img');
+      const title = card.getAttribute('data-title');
+      const modal = document.getElementById('serviceModal');
+      const modalImg = document.getElementById('svcModalImg');
+      modalImg.src = img;
+      modalImg.alt = title;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      lucide.createIcons();
+    }
+
+    function closeServiceModal(e) {
+      if (e && e.target !== document.getElementById('serviceModal') && !e.target.closest('.svc-modal-close')) return;
+      const modal = document.getElementById('serviceModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeServiceModal();
+    });
   </script>
 </body>
 </html>

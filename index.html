@@ -177,7 +177,8 @@
   <!-- ══════════════════════════════════════════
        BOOKING SECTION — WhatsApp Direct
   ══════════════════════════════════════════ -->
-  <section id="booking">
+  <!-- HOME SERVICE BANNER -->
+  <section id="home-service" style="padding:60px 0 0;">
     <div class="container">
       <div class="home-service-banner reveal">
         <img src="assets/services/homeservice.png" alt="Home Service — Nisa Makeover" class="hs-banner-img" />
@@ -185,10 +186,14 @@
           <p class="hs-banner-tag"><i data-lucide="home" class="icon-inline"></i> Home Service Available</p>
           <h3 class="hs-banner-title">We Come To You</h3>
           <p class="hs-banner-sub">Professional makeup, hairstyling & saree draping at your doorstep — same luxury, no salon hassle.</p>
-          <a href="#booking" class="btn-primary hs-book-btn"><span><i data-lucide="calendar" class="btn-icon"></i> Book Appointment</span></a>
+          <a href="#booking" class="btn-primary hs-book-btn" onclick="document.querySelector('.booking-card').scrollIntoView({behavior:'smooth', block:'start'}); return false;"><span><i data-lucide="calendar" class="btn-icon"></i> Book Appointment</span></a>
         </div>
       </div>
+    </div>
+  </section>
 
+  <section id="booking">
+    <div class="container">
       <div class="booking-header reveal">
         <span class="section-tag"><i data-lucide="gem" class="icon-tag"></i> Appointments</span>
         <h2 class="section-title">Book Your <span>Appointment</span></h2>

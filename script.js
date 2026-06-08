@@ -134,9 +134,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Build summary on step 3
     if (n === 3) buildSummary();
 
-    // Scroll to booking section
-    const bookingSection = document.getElementById("booking");
-    window.scrollTo({ top: bookingSection.getBoundingClientRect().top + window.scrollY - 90, behavior: "smooth" });
+    // Scroll to booking form top
+    const bookingCard = document.querySelector(".booking-card") || document.getElementById("booking");
+    window.scrollTo({ top: bookingCard.getBoundingClientRect().top + window.scrollY - 30, behavior: "smooth" });
   }
 
   /* Validation */
